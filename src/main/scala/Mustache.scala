@@ -101,6 +101,12 @@ package mustache {
     ) : TokenProduct = compiledTemplate.render(context, partials, callstack)
 
   }
+    
+  object Mustache{
+      def fromFile(path:String) = new Mustache(Source.fromFile(path))
+      def fromString(md:String) = new Mustache(md)
+      def apply(md:String) = fromFile(md);
+  } 
 
   private class ParserState
   private object Text extends ParserState
